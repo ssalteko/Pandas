@@ -17,14 +17,14 @@ def plot_global_regions(df, dtype, regions,start):
     
 
 
-def plot_all_subregion_sums(df,regions,start):
+def plot_all_subregion_sums(df,subregions,start):
     ''' adds sum column to df then plots those sums  given a df and a list of regions.'''
     
-    df = add_sum_column_for_subregion(df,regions)
+    df = add_sum_column_for_subregion(df,subregions)
 
-    for region in regions:
+    for subregion in subregions:
     
-        plt.plot(df[f'{region} total'][start:], label = f'{region} sum',marker = "o")
+        plt.plot(df[f'{subregion} sum'][start:], label = f'{subregion} sum',marker = "o")
 
     return 
 
@@ -32,10 +32,10 @@ def plot_all_region_sums(df,regions,start):
     ''' adds sum column to df then plots those sums  given a df and a list of regions.'''
     
     df = add_sum_column_for_region(df,regions)
-
+    print(df)
     for region in regions:
     
-        plt.plot(df[f'{region} total'][start:], label = f'{region} sum',marker = "o")
+        plt.plot(df[f'{region} sum'][start:], label = f'{region} sum',marker = "o")
 
     return 
 

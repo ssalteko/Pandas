@@ -63,7 +63,7 @@ def get_us_covid_df(file_name):
 def add_sum_column_for_subregion(df,subregions):
     ''' Creates another column with the sums of the multiple regions within an area.'''
      #### the df
-    print("\n\ndf before: \n\n",df,"\n\n")
+    # print("\n\ndf before: \n\n",df,"\n\n")
 
     #### Make the df only have the regions of interest
     df2 = pd.DataFrame()
@@ -80,7 +80,7 @@ def add_sum_column_for_subregion(df,subregions):
     ###Change the cell value so that it has the proper column title in the final transposed df/array.
     subregions_t = []
     for region in subregions:
-        subregions_t += [f'{region} total']
+        subregions_t += [f'{region} sum']
     # for i in range(0,len(df1)):
     df1.loc[:,'Province/State'] = subregions_t
         
@@ -110,14 +110,14 @@ def add_sum_column_for_region(df,regions):
     ###Change the cell value so that it has the proper column title in the final transposed df/array.
     regions_t = []
     for region in regions:
-        regions_t += [f'{region} total']
+        regions_t += [f'{region} sum']
     # for i in range(0,len(df1)):
     df1.loc[:,'Country/Region'] = regions_t
         
     ### Concatinate the origional df and the sum_df by vertically.
     df = pd.concat([df,df1]).set_index('Country/Region').T
     df = df.drop(['index'], axis = 0)
-    print(df)
+    # print(df)
     return df
 
     

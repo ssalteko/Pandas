@@ -10,12 +10,14 @@ def global_Con_Rec_Dead(regions):
     plt.suptitle("Global confirmed, recovered \n and dead.")
     
     url = get_url('confirmed','global')
-    global_df_confirmed = get_global_covid_df(url)
+    print(url)
+    global_confirmed_df= get_global_covid_df(url)
 
     url = get_url('recovered','global')
     global_recovered_df = get_global_covid_df(url)
     
     url = get_url('deaths','global')
+    print(url)
     global_dead_df = get_global_covid_df(url)
 
     # print(global_dead_df)
@@ -27,7 +29,7 @@ def global_Con_Rec_Dead(regions):
     start = 40  # day number past epoch to start plotting
  
     plt.subplot(311) 
-    plot_global_regions(global_df_confirmed, 'confirmed', regions, start)
+    plot_global_regions(global_confirmed_df, 'confirmed', regions, start)
     plt.title('Confrimed')
   
     plt.xticks(range(0, l-start,days_tick))
@@ -47,7 +49,7 @@ def global_Con_Rec_Dead(regions):
 
     plt.subplot(313) 
 
-    
+    plot_global_regions(global_dead_df,'dead', regions, start)
 
     plt.title('Dead')
     plt.xticks(range(0, l-start,days_tick))
@@ -144,14 +146,15 @@ def global_Con_Rec_dead_first_day(regions):
 
     days_tick = 12 #days between tick marks
     yscale = 'linear'
-    l = len(global_recovered_df)
+    l = len(global_recovered_df.T)
     start = 40  # day number past epoch to start plotting
  
     plt.subplot(311) 
 
-    plot_global_regions(global_df_confirmed, 'confirmed', regions, start)
-    plt.title('Confrimed')
+    plot_all_region_sums(global_df_confirmed,regions,start)
+    
    
+    plt.title('Confrimed')
     plt.xticks(range(0, l-start,days_tick))
     plt.yscale(yscale)
     plt.ylabel('people')
@@ -160,7 +163,7 @@ def global_Con_Rec_dead_first_day(regions):
 
     plt.subplot(312) 
 
-    plot_global_regions(global_recovered_df,'recovered', regions, start)
+    plot_all_region_sums(global_recovered_df, regions, start)
 
     plt.title('Recovered')
     plt.xticks(range(0, l-start,days_tick))
@@ -169,7 +172,7 @@ def global_Con_Rec_dead_first_day(regions):
 
     plt.subplot(313) 
 
-    plot_global_regions(global_dead_df,'deaths', regions,start)
+    plot_all_region_sums(global_dead_df, regions,start)
 
     plt.title('Dead')
     plt.xticks(range(0, l-start,days_tick))

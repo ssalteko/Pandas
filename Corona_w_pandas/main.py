@@ -7,10 +7,11 @@ def main():
    
     yscale = 'linear'
     day_tick = 7
-    countries = ['United Kingdom']  
+    countries = ['Spain',"United Kingdom"]  
     
 
-    global_Con_Rec_Dead(countries)    
+    # global_Con_Rec_Dead(countries)    
+    global_Con_Rec_dead_first_day(countries)
     
     # UK_Con_Rec_dead()
     #### US cases ####
