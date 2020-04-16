@@ -1,10 +1,11 @@
 import pandas as pd
+from matplotlib import pyplot as plt
 
 #### Creating df. You can turn any dicitonary with list values as a dataframe.
 
 dfA = pd.DataFrame({'A':[1,2,3,4]})
 dfB = pd.DataFrame({'B':[5,6,7,8]})
-dfC = pd.DataFrame({'C':[22,23,24,25]})
+dfZ = pd.DataFrame({'D':[22,23,24,25]})
 
 # print(dfA)
 # print(dfB)
@@ -47,5 +48,9 @@ print("df1: ",df1)
 
 
 #### Plotting multiple scatter plots
-ax1 = df.plot(x = 'A', y = 'B',kind = 'scatter', c = 'C')
-df.plot(x = 'A', y = 'B', kind = 'scatter', ax = ax1)
+df = pd.concat([dfE,dfZ], axis = 1)
+print(df)
+ax1 = df.plot(x = 'A', y = 'B',kind = 'scatter', c = 'D')
+df.plot(x = 'A', y = 'D', kind = 'scatter',c = 'B', ax = ax1)
+
+plt.show()
