@@ -4,6 +4,7 @@ import pandas as pd
 
 dfA = pd.DataFrame({'A':[1,2,3,4]})
 dfB = pd.DataFrame({'B':[5,6,7,8]})
+dfC = pd.DataFrame({'C':[22,23,24,25]})
 
 # print(dfA)
 # print(dfB)
@@ -43,3 +44,8 @@ print(df.groupby('a').sum())
 df1 = df.set_index('a')
 df1 = df.reset_index()
 print("df1: ",df1)
+
+
+#### Plotting multiple scatter plots
+ax1 = df.plot(x = 'A', y = 'B',kind = 'scatter', c = 'C')
+df.plot(x = 'A', y = 'B', kind = 'scatter', ax = ax1)
