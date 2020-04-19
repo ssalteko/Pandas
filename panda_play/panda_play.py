@@ -29,6 +29,8 @@ dfG = pd.concat([dfE,dfC], axis = 1)
 print('dfG: ',dfG)
 
 
+#df = df[df['Column Name'].isin(list of values)] finds all rows with values in a list.
+
 
 #### TRANSPOSING THE df.
 
