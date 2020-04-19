@@ -28,10 +28,10 @@ print('dfF: ',dfF)
 dfG = pd.concat([dfE,dfC], axis = 1)
 print('dfG: ',dfG)
 
-
+l = [1,4]
 #df = df[df['Column Name'].isin(list of values)] finds all rows with values in a list.
-
-
+dfz = dfE[dfE['A'].isin(l)]
+print('\n\n helor \n\n',dfZ)
 #### TRANSPOSING THE df.
 
 dfH = dfE.T
